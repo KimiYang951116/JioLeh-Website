@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy — JioLeh</title>
+<meta name="description" content="How JioLeh collects, uses, and protects your data. Friends-first, private by default." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="icon" href="assets/logo-dark.png" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* ── legal document page ── */
+  .doc-hero{ position:relative; overflow:hidden; padding:72px 0 44px; border-bottom:1px solid var(--line); }
+  .doc-hero .hero-glow{ position:absolute; border-radius:50%; filter:blur(70px); opacity:.42; pointer-events:none; z-index:0; }
+  .doc-hero .g1{ width:460px; height:460px; background:radial-gradient(circle, color-mix(in srgb,var(--leaf) 50%, transparent), transparent 70%); top:-180px; right:-100px; }
+  .doc-hero .g2{ width:360px; height:360px; background:radial-gradient(circle, color-mix(in srgb,var(--rose) 45%, transparent), transparent 70%); bottom:-200px; left:-120px; opacity:.4; }
+  .doc-hero .wrap{ position:relative; z-index:2; }
+  .crumb{ font-family:var(--font-mono); font-size:12.5px; font-weight:700; letter-spacing:.08em; color:var(--ink-faint); display:flex; gap:8px; align-items:center; margin-bottom:22px; }
+  .crumb a{ color:var(--ink-2); transition:color .2s; }
+  .crumb a:hover{ color:var(--ink); }
+  .doc-title{ font-size:clamp(38px,5.4vw,68px); letter-spacing:-.03em; max-width:14ch; }
+  .doc-lead{ font-size:clamp(18px,1.6vw,21px); color:var(--ink-2); max-width:54ch; margin-top:20px; }
+  .doc-meta{ display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
+  .doc-meta .chip{
+    font-family:var(--font-mono); font-size:12.5px; font-weight:700; letter-spacing:.02em;
+    background:var(--card); color:var(--ink-2); border:1px solid var(--line);
+    padding:9px 14px; border-radius:999px; display:inline-flex; align-items:center; gap:8px;
+  }
+  .doc-meta .chip b{ color:var(--ink); font-family:var(--font-display); }
+  .doc-meta .chip .dot{ width:7px; height:7px; border-radius:50%; background:var(--accent); }
+
+  /* layout */
+  .doc-layout{ display:grid; grid-template-columns:236px 1fr; gap:64px; align-items:start; padding:64px 0 40px; }
+
+  /* sticky TOC */
+  .toc{ position:sticky; top:96px; }
+  .toc h6{ font-family:var(--font-mono); font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 14px; }
+  .toc ol{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:1px; counter-reset:toc; }
+  .toc a{
+    display:flex; gap:10px; align-items:baseline; font-size:14px; font-weight:600; color:var(--ink-2);
+    padding:7px 10px; border-radius:10px; line-height:1.3; transition:background .18s, color .18s;
+  }
+  .toc a .n{ font-family:var(--font-mono); font-size:11.5px; color:var(--ink-faint); flex:0 0 auto; min-width:16px; }
+  .toc a:hover{ background:var(--card); color:var(--ink); }
+  .toc a.active{ background:var(--card); color:var(--ink); box-shadow:var(--shadow-sm); }
+  .toc a.active .n{ color:var(--accent); }
+
+  /* content */
+  .doc-body{ max-width:680px; }
+  .doc-intro{ font-size:19.5px; color:var(--ink-2); padding-bottom:34px; margin-bottom:10px; border-bottom:1px solid var(--line-soft); }
+  .doc-intro strong{ color:var(--ink); font-weight:700; }
+  .sec{ padding:34px 0; border-bottom:1px solid var(--line-soft); scroll-margin-top:96px; }
+  .sec:last-of-type{ border-bottom:none; }
+  .sec-num{ font-family:var(--font-mono); font-size:13px; font-weight:700; letter-spacing:.1em; color:var(--accent); }
+  .sec h2{ font-size:clamp(24px,2.8vw,32px); letter-spacing:-.02em; margin:8px 0 16px; }
+  .sec h3{ font-size:19px; font-family:var(--font-display); color:var(--ink); margin:26px 0 10px; letter-spacing:-.01em; }
+  .sec p{ font-size:17px; color:var(--ink-2); margin:0 0 14px; }
+  .sec p:last-child{ margin-bottom:0; }
+  .sec a{ color:var(--accent); text-decoration:underline; text-underline-offset:3px; }
+  .sec ul{ list-style:none; margin:6px 0 16px; padding:0; display:flex; flex-direction:column; gap:10px; }
+  .sec ul li{ position:relative; padding-left:26px; font-size:16.5px; color:var(--ink-2); }
+  .sec ul li::before{
+    content:""; position:absolute; left:4px; top:9px; width:7px; height:7px; border-radius:50%;
+    background:color-mix(in srgb,var(--accent) 70%, transparent);
+  }
+  .sec ul li b{ color:var(--ink); font-weight:700; }
+
+  /* callout */
+  .callout{ background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:20px 22px; margin:18px 0; display:flex; gap:14px; align-items:flex-start; }
+  .callout .ic{ flex:0 0 38px; width:38px; height:38px; border-radius:11px; background:color-mix(in srgb,var(--accent) 16%, transparent); color:var(--accent); display:grid; place-items:center; }
+  .callout .ic svg{ width:20px; height:20px; }
+  .callout p{ margin:0; font-size:15.5px; color:var(--ink-2); }
+  .callout p b{ color:var(--ink); }
+
+  /* services table */
+  .svc{ display:grid; grid-template-columns:1fr; gap:0; border:1px solid var(--line); border-radius:var(--r); overflow:hidden; margin:14px 0 16px; }
+  .svc-row{ display:grid; grid-template-columns:200px 1fr; gap:18px; padding:15px 20px; border-bottom:1px solid var(--line-soft); align-items:baseline; }
+  .svc-row:last-child{ border-bottom:none; }
+  .svc-row .svc-name{ font-family:var(--font-display); font-weight:800; font-size:15.5px; color:var(--ink); }
+  .svc-row .svc-use{ font-size:15px; color:var(--ink-2); }
+  .svc-row:nth-child(even){ background:color-mix(in srgb,var(--card) 60%, transparent); }
+
+  /* contact card */
+  .contact-card{ background:var(--brand); color:var(--on-brand); border-radius:var(--r-lg); padding:34px 36px; margin-top:44px; position:relative; overflow:hidden; }
+  .contact-card .cta-pin{ position:absolute; right:-24px; bottom:-44px; width:200px; height:250px; opacity:.1; color:var(--on-brand); }
+  .contact-card h3{ color:var(--on-brand); font-family:var(--font-display); font-size:26px; margin:0 0 8px; letter-spacing:-.01em; }
+  .contact-card p{ color:color-mix(in srgb,var(--on-brand) 80%, transparent); font-size:16px; margin:0 0 20px; max-width:42ch; }
+  .contact-card .btn-primary{ background:var(--on-brand); color:var(--brand); box-shadow:0 4px 0 color-mix(in srgb,var(--on-brand) 70%, #000); position:relative; z-index:2; }
+  .contact-card .btn-primary:hover{ box-shadow:0 6px 0 color-mix(in srgb,var(--on-brand) 70%, #000); }
+
+  @media (max-width:920px){
+    .doc-layout{ grid-template-columns:1fr; gap:0; padding-top:40px; }
+    .toc{ position:static; margin-bottom:36px; padding:18px 20px; background:var(--card); border:1px solid var(--line); border-radius:var(--r); }
+    .toc ol{ display:grid; grid-template-columns:1fr 1fr; gap:2px; }
+    .doc-body{ max-width:none; }
+    .svc-row{ grid-template-columns:1fr; gap:4px; }
+  }
+  @media (max-width:560px){
+    .toc ol{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ───────────── NAV ───────────── -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html" aria-label="JioLeh home">
+      <svg class="pin" viewBox="0 0 64 84" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M32 4C46.4 4 58 15.4 58 29.5 58 44 44 55.5 33.6 68.6 32.8 69.6 31.2 69.6 30.4 68.6 20 55.5 6 44 6 29.5 6 15.4 17.6 4 32 4Zm0 15.5a10 10 0 1 0 0 20 10 10 0 0 0 0-20ZM32 75.6a4.2 4.2 0 1 0 0 8.4 4.2 4.2 0 0 0 0-8.4Z"/></svg>
+      JioLeh
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#ranks">Ranks</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+    <div class="nav-tools">
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.6M12 18.9v2.6M4.4 4.4l1.9 1.9M17.7 17.7l1.9 1.9M2.5 12h2.6M18.9 12h2.6M4.4 19.6l1.9-1.9M17.7 6.3l1.9-1.9"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></svg>
+      </button>
+      <a class="btn btn-primary btn-sm" href="index.html#beta">Get the beta</a>
+    </div>
+  </div>
+</header>
+
+<!-- ───────────── DOC HERO ───────────── -->
+<section class="doc-hero">
+  <div class="hero-glow g1"></div>
+  <div class="hero-glow g2"></div>
+  <div class="wrap">
+    <div class="crumb">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <span>Privacy Policy</span>
+    </div>
+    <h1 class="doc-title">Privacy Policy</h1>
+    <p class="doc-lead">JioLeh is built friends-first and private by default. This policy explains what we collect, how we use it, how we protect it, and the choices you have.</p>
+    <div class="doc-meta">
+      <span class="chip"><i class="dot"></i>Effective <b>9 June 2026</b></span>
+      <span class="chip">App <b>JioLeh!</b></span>
+      <span class="chip">By <b>GI-Jios</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── DOC BODY ───────────── -->
+<div class="wrap">
+  <div class="doc-layout">
+
+    <!-- TOC -->
+    <aside class="toc">
+      <h6>Contents</h6>
+      <ol>
+        <li><a href="#s1"><span class="n">01</span>Introduction</a></li>
+        <li><a href="#s2"><span class="n">02</span>Information we collect</a></li>
+        <li><a href="#s3"><span class="n">03</span>How we use it</a></li>
+        <li><a href="#s4"><span class="n">04</span>AI &amp; third parties</a></li>
+        <li><a href="#s5"><span class="n">05</span>How we share it</a></li>
+        <li><a href="#s6"><span class="n">06</span>Your controls</a></li>
+        <li><a href="#s7"><span class="n">07</span>Location sharing</a></li>
+        <li><a href="#s8"><span class="n">08</span>Public profiles</a></li>
+        <li><a href="#s9"><span class="n">09</span>Storage &amp; security</a></li>
+        <li><a href="#s10"><span class="n">10</span>Data retention</a></li>
+        <li><a href="#s11"><span class="n">11</span>Children's privacy</a></li>
+        <li><a href="#s12"><span class="n">12</span>International transfers</a></li>
+        <li><a href="#s13"><span class="n">13</span>Your rights</a></li>
+        <li><a href="#s14"><span class="n">14</span>Changes</a></li>
+        <li><a href="#s15"><span class="n">15</span>Contact us</a></li>
+      </ol>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="doc-body">
+      <p class="doc-intro">JioLeh! is a location-based social platform that lets you share meaningful real-world experiences with friends through map pins, reviews, photos, comments, recommendations, friend interactions, and gamified exploration. <strong>By using JioLeh!, you agree to the collection and use of information in accordance with this Privacy Policy.</strong></p>
+
+      <section class="sec" id="s1">
+        <div class="sec-num">01</div>
+        <h2>Introduction</h2>
+        <p>JioLeh! is a location-based social platform that allows you to share meaningful real-world experiences with friends through map pins, reviews, photos, comments, location-based recommendations, friend interactions, and gamified exploration features.</p>
+        <p>We respect your privacy and are committed to protecting your personal data. This Privacy Policy explains what information we collect, how we use it, how we protect it, and what choices you have when using JioLeh!. By using the app, you agree to the collection and use of information as described here.</p>
+      </section>
+
+      <section class="sec" id="s2">
+        <div class="sec-num">02</div>
+        <h2>Information we collect</h2>
+        <p>We may collect the following types of information when you use JioLeh!.</p>
+
+        <h3>2.1 Account information</h3>
+        <p>When you create an account or log in, we may collect your name or username, email address, profile picture, authentication information, and your account settings and preferences. This is used to create and manage your account, identify you within the app, and support friend-based features.</p>
+
+        <h3>2.2 Location information</h3>
+        <p>Because JioLeh! is a location-based app, we may collect:</p>
+        <ul>
+          <li>Your current location, if you give permission</li>
+          <li>Locations you manually pin on the map</li>
+          <li>Places you review, save, or interact with</li>
+          <li>Location metadata, such as coordinates, place names, and categories</li>
+        </ul>
+        <p>Location data lets you add pins, share places with friends, discover nearby recommendations, and use map-based features. You may disable location permissions at any time through your device settings — though some location-based features may not work properly if access is disabled.</p>
+
+        <h3>2.3 User-generated content</h3>
+        <p>You may choose to upload or create content, including reviews, ratings, comments, photos, place names, chat messages tied to locations, OpenJio event details, and itineraries or travel-related information. This content may be visible to your friends, groups, or other users depending on your privacy settings and sharing choices.</p>
+
+        <h3>2.4 Photos and media</h3>
+        <p>If you upload photos, we may collect and store the images you provide. These photos may be used to support location reviews, memories, profile features, and visual map interactions. We may also process uploaded images using third-party services to check whether the image is appropriate or relevant to the location.</p>
+
+        <h3>2.5 Friend and social interaction data</h3>
+        <p>To support social features, we may collect friend requests, accepted friend connections, group memberships, comments and interactions between friends, leaderboard and points activity, and shared locations within friend groups.</p>
+        <div class="callout">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 7.5 8 9 4.5-1.5 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <p><b>Private by default.</b> In most cases, your shared content is only visible to users you have accepted as friends, or users within selected groups.</p>
+        </div>
+
+        <h3>2.6 Device and usage information</h3>
+        <p>We may collect technical information to improve the app, such as device type, operating system, app version, log data, crash reports, feature usage patterns, and performance data. This helps us maintain, debug, and improve JioLeh!.</p>
+      </section>
+
+      <section class="sec" id="s3">
+        <div class="sec-num">03</div>
+        <h2>How we use your information</h2>
+        <p>We use the information we collect to:</p>
+        <ul>
+          <li>Create and manage user accounts</li>
+          <li>Provide map-based location sharing features</li>
+          <li>Allow users to add, save, and view location pins</li>
+          <li>Enable reviews, ratings, photos, and comments</li>
+          <li>Support friend invitations and private sharing</li>
+          <li>Enable group chats, OpenJio events, and location-based discussions</li>
+          <li>Provide gamified features such as points, leaderboards, and fog-of-map progress</li>
+          <li>Suggest places based on friend activity and location data</li>
+          <li>Detect inappropriate or irrelevant uploaded images</li>
+          <li>Classify comments or reviews into useful topics</li>
+          <li>Improve app functionality, security, and user experience</li>
+          <li>Prevent abuse, spam, fraud, and malicious activity</li>
+          <li>Comply with legal obligations where required</li>
+        </ul>
+      </section>
+
+      <section class="sec" id="s4">
+        <div class="sec-num">04</div>
+        <h2>AI and third-party processing</h2>
+        <p>JioLeh! may use artificial intelligence or machine learning services to improve your experience. For example, uploaded images may be processed to detect inappropriate content or determine whether the image is relevant to a place; reviews and comments may be processed to classify topics such as "cheap food" or "friendly staff"; and location and friend activity may be analyzed to suggest places relevant to you.</p>
+        <p>We may use the following trusted third-party services, which process data only as necessary to provide the app's features:</p>
+        <div class="svc">
+          <div class="svc-row"><span class="svc-name">Supabase</span><span class="svc-use">Authentication, database, storage, and backend services</span></div>
+          <div class="svc-row"><span class="svc-name">Mapbox</span><span class="svc-use">Map display and location-related features</span></div>
+          <div class="svc-row"><span class="svc-name">Google Cloud Vision</span><span class="svc-use">Image classification and SafeSearch detection</span></div>
+          <div class="svc-row"><span class="svc-name">OpenAI Embeddings</span><span class="svc-use">Comment and review classification</span></div>
+          <div class="svc-row"><span class="svc-name">PostgreSQL · PostGIS · pgvector</span><span class="svc-use">Geospatial and recommendation features</span></div>
+        </div>
+      </section>
+
+      <section class="sec" id="s5">
+        <div class="sec-num">05</div>
+        <h2>How we share your information</h2>
+        <div class="callout">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
+          <p><b>We do not sell your personal data.</b> No ad networks, no data brokers, no sponsored pins disguised as friends' picks.</p>
+        </div>
+        <h3>5.1 With your friends or groups</h3>
+        <p>Content you choose to share — such as pins, reviews, photos, ratings, comments, or OpenJio events — may be visible to your accepted friends or selected groups, depending on your privacy settings.</p>
+        <h3>5.2 With service providers</h3>
+        <p>We may share data with trusted third-party service providers who help us operate the app, such as cloud hosting, authentication, storage, map services, image analysis, and AI processing providers.</p>
+        <h3>5.3 For safety, security, or legal reasons</h3>
+        <p>We may disclose information if necessary to protect the safety of users, prevent fraud, abuse, or security threats, enforce our terms or policies, or comply with applicable laws, regulations, or legal requests.</p>
+      </section>
+
+      <section class="sec" id="s6">
+        <div class="sec-num">06</div>
+        <h2>Privacy controls and your choices</h2>
+        <p>You have control over how your information is shared. Depending on the features available in the app, you may be able to:</p>
+        <ul>
+          <li>Accept or reject friend requests</li>
+          <li>Choose who can view your shared locations</li>
+          <li>Share content only with selected friends or groups</li>
+          <li>Disable location sharing</li>
+          <li>Remove or edit your pins, reviews, photos, or comments</li>
+          <li>Leave groups</li>
+          <li>Change account or privacy settings</li>
+          <li>Delete your account, subject to technical and legal limitations</li>
+        </ul>
+        <p>You can also disable location permissions through your device settings at any time.</p>
+      </section>
+
+      <section class="sec" id="s7">
+        <div class="sec-num">07</div>
+        <h2>Location sharing</h2>
+        <p>JioLeh! uses location data only with your permission. You may choose to allow location access, manually add locations, stop sharing location data, or disable location access through your device settings.</p>
+        <p>We aim to avoid exposing your personal or location-related information unnecessarily. Your account and location-sharing features are designed to be private by default, except where you intentionally share content with friends, groups, or public followers if public creator features are enabled.</p>
+      </section>
+
+      <section class="sec" id="s8">
+        <div class="sec-num">08</div>
+        <h2>Public profiles and content creators</h2>
+        <p>JioLeh! may include verified content creator accounts in the future. Unlike normal private accounts, content creator profiles may allow wider public access to selected recommendations, posts, or location content.</p>
+        <p>If you choose to follow or interact with a public content creator account, some of your interactions may be visible depending on the feature design and privacy settings. Normal user accounts remain private by default unless users intentionally choose to share information.</p>
+      </section>
+
+      <section class="sec" id="s9">
+        <div class="sec-num">09</div>
+        <h2>Data storage and security</h2>
+        <p>We take reasonable technical and organizational measures to protect your data against unauthorized access, loss, misuse, or alteration. These measures may include:</p>
+        <ul>
+          <li>Authentication and access control</li>
+          <li>Database security rules</li>
+          <li>Input validation and sanitization</li>
+          <li>Secure storage for uploaded content</li>
+          <li>Limited access to personal data</li>
+          <li>Monitoring for suspicious activity</li>
+        </ul>
+        <p>However, no method of electronic storage or transmission over the internet is completely secure. We cannot guarantee absolute security.</p>
+      </section>
+
+      <section class="sec" id="s10">
+        <div class="sec-num">10</div>
+        <h2>Data retention</h2>
+        <p>We retain your information for as long as necessary to provide JioLeh!'s services, maintain your account, comply with legal obligations, resolve disputes, and enforce our policies.</p>
+        <p>If you delete your account, we will take reasonable steps to delete or anonymize your personal data, unless retention is required for legal, security, or technical reasons. Some content may remain temporarily in backups or logs before being fully deleted.</p>
+      </section>
+
+      <section class="sec" id="s11">
+        <div class="sec-num">11</div>
+        <h2>Children's privacy</h2>
+        <p>JioLeh! is not intended for children under the minimum age required by applicable law. If we become aware that we have collected personal data from a child without appropriate consent, we will take steps to delete that information.</p>
+      </section>
+
+      <section class="sec" id="s12">
+        <div class="sec-num">12</div>
+        <h2>International data transfers</h2>
+        <p>Because JioLeh! may use cloud-based service providers, your information may be processed or stored in countries outside your country of residence. Where applicable, we will take reasonable steps to ensure that your data is protected according to appropriate privacy and security standards.</p>
+      </section>
+
+      <section class="sec" id="s13">
+        <div class="sec-num">13</div>
+        <h2>Your rights</h2>
+        <p>Depending on your location and applicable privacy laws, you may have rights to:</p>
+        <ul>
+          <li>Access your personal data</li>
+          <li>Correct inaccurate data</li>
+          <li>Delete your personal data</li>
+          <li>Restrict or object to certain processing</li>
+          <li>Withdraw consent for location access or other optional features</li>
+          <li>Request a copy of your data</li>
+        </ul>
+        <p>To exercise these rights, please contact us at <a href="mailto:kimiyang@u.nus.edu">kimiyang@u.nus.edu</a>.</p>
+      </section>
+
+      <section class="sec" id="s14">
+        <div class="sec-num">14</div>
+        <h2>Changes to this Privacy Policy</h2>
+        <p>We may update this Privacy Policy from time to time as JioLeh! develops new features or as legal requirements change. If we make significant changes, we may notify users through the app, email, or another appropriate method. The updated Privacy Policy will be effective when posted, unless otherwise stated.</p>
+      </section>
+
+      <section class="sec" id="s15">
+        <div class="sec-num">15</div>
+        <h2>Contact us</h2>
+        <p>If you have any questions, concerns, or requests regarding this Privacy Policy, please reach out — we're a small team and we read everything.</p>
+        <div class="contact-card">
+          <svg class="cta-pin" viewBox="0 0 64 84" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M32 4C46.4 4 58 15.4 58 29.5 58 44 44 55.5 33.6 68.6 32.8 69.6 31.2 69.6 30.4 68.6 20 55.5 6 44 6 29.5 6 15.4 17.6 4 32 4Zm0 15.5a10 10 0 1 0 0 20 10 10 0 0 0 0-20ZM32 75.6a4.2 4.2 0 1 0 0 8.4 4.2 4.2 0 0 0 0-8.4Z"/></svg>
+          <h3>GI-Jios · JioLeh! Team</h3>
+          <p>Questions about your data, deletion requests, or anything privacy-related — drop us a line.</p>
+          <a class="btn btn-primary" href="mailto:kimiyang@u.nus.edu">Email kimiyang@u.nus.edu</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<!-- ───────────── FOOTER ───────────── -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand">
+          <svg class="pin" viewBox="0 0 64 84" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M32 4C46.4 4 58 15.4 58 29.5 58 44 44 55.5 33.6 68.6 32.8 69.6 31.2 69.6 30.4 68.6 20 55.5 6 44 6 29.5 6 15.4 17.6 4 32 4Zm0 15.5a10 10 0 1 0 0 20 10 10 0 0 0 0-20ZM32 75.6a4.2 4.2 0 1 0 0 8.4 4.2 4.2 0 0 0 0-8.4Z"/></svg>
+          JioLeh
+        </div>
+        <p>Singapore's friends-only map. Pin it, jio it, rank it.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Product</h5>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#ranks">Ranks</a>
+        <a href="index.html#beta">Join the beta</a>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <a href="index.html#how">About</a>
+        <a href="index.html#beta">Beta updates</a>
+        <a href="mailto:kimiyang@u.nus.edu">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h5>Legal</h5>
+        <a href="privacy.html">Privacy Policy</a>
+        <span class="foot-muted">Terms coming soon</span>
+        <span class="foot-muted">No ad cookies</span>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© <span id="year">2026</span> JioLeh. Built for the kakis.</span>
+      <span class="made">Made in Singapore 🇸🇬</span>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+<script>
+  /* TOC active-section highlight */
+  (function(){
+    var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+    var map = {};
+    links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+    var secs = Array.prototype.slice.call(document.querySelectorAll('.sec'));
+    if (!('IntersectionObserver' in window) || !secs.length) return;
+    var io = new IntersectionObserver(function(ents){
+      ents.forEach(function(en){
+        if (en.isIntersecting){
+          links.forEach(function(l){ l.classList.remove('active'); });
+          var a = map[en.target.id];
+          if (a) a.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+    secs.forEach(function(s){ io.observe(s); });
+  })();
+</script>
+</body>
+</html>
