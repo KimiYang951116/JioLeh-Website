@@ -3,7 +3,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/profile/:id", "destination": "/profile.html" }
+    { "source": "/profile/:id", "destination": "/profile" }
   ],
   "headers": [
     {
