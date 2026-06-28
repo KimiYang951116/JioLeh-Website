@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["FJX3SGU9AL.com.gijios.jioleh"],
+        "components": [
+          {
+            "/": "/profile/*",
+            "comment": "Matches profile share links"
+          }
+        ]
+      }
+    ]
+  }
+}

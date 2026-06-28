@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.gijios.jioleh",
+      "sha256_cert_fingerprints": [
+        "FB:FC:C3:61:0A:62:90:6E:8F:EC:EF:A2:C8:BE:BB:64:AF:9B:57:14:06:06:EC:41:B2:0E:3F:77:D9:C4:23:6F"
+      ]
+    }
+  }
+]
