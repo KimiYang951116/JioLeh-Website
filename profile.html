@@ -18,6 +18,8 @@
     h1{ font-family:"Gabarito",sans-serif; font-weight:800; font-size:24px; color:var(--ink); margin:16px 0 8px; letter-spacing:-.02em; }
     p{ font-size:15px; margin:0 0 24px; }
     a.btn{ display:block; padding:14px 20px; border-radius:12px; background:var(--ink); color:var(--on-brand); text-decoration:none; font-family:"Gabarito",sans-serif; font-weight:700; font-size:16px; box-shadow:0 4px 0 var(--brand-press); }
+    a.btn + a.btn{ margin-top:10px; }
+    a.btn-ghost{ background:transparent; color:var(--ink); box-shadow:inset 0 0 0 2px var(--line); }
     .note{ margin:18px 0 0; font-size:13px; color:#9C8C7B; }
   </style>
 </head>
@@ -25,16 +27,17 @@
   <main>
     <svg class="pin" viewBox="0 0 64 84" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M32 4C46.4 4 58 15.4 58 29.5 58 44 44 55.5 33.6 68.6 32.8 69.6 31.2 69.6 30.4 68.6 20 55.5 6 44 6 29.5 6 15.4 17.6 4 32 4Zm0 15.5a10 10 0 1 0 0 20 10 10 0 0 0 0-20ZM32 75.6a4.2 4.2 0 1 0 0 8.4 4.2 4.2 0 0 0 0-8.4Z"/></svg>
     <h1>Open this profile in JioLeh</h1>
-    <p>If the app didn't open automatically, get JioLeh to view this profile.</p>
-    <!-- TODO: swap to the App Store / Google Play links once the app is publicly listed -->
-    <a class="btn" href="/">Get JioLeh</a>
+    <p>Open it in the app, or get JioLeh if you don't have it yet.</p>
+    <a class="btn" id="open-app" href="#">Open in app</a>
+    <!-- TODO: swap "/" to the App Store / Google Play links once the app is publicly listed -->
+    <a class="btn btn-ghost" href="/">Get JioLeh</a>
     <p class="note">JioLeh is in private beta on TestFlight.</p>
   </main>
   <script>
-    // Installed users who land here in a browser get bounced into the app via the custom scheme.
+    // Point "Open in app" at the custom scheme for this profile so a tap jumps into the app.
     var id = window.location.pathname.split("/").filter(Boolean).pop();
     if (id && id !== "profile") {
-      window.location.replace("com.gijios.jioleh://profile/" + id);
+      document.getElementById("open-app").href = "com.gijios.jioleh://profile/" + id;
     }
   </script>
 </body>
